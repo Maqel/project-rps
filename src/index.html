@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kamień, papier, nożyce</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<main class="container">
+    <h1>ROCK PAPER SCISSORS</h1>
+		<div class="buttons">
+      <button class="selected rock" type="button" onclick="clickSound.play()">ROCK</button>
+      <button class="selected paper" type="button" onclick="clickSound.play()">PAPER</button>
+      <button class="selected scissors" type="button" onclick="clickSound.play()">SCISSORS</button>
+    </div>
+    <div class="img-container">
+      <img class="player-move" src="./images/rock/rock_left.png" alt="player move">
+      <img class="computer-move" src="./images/rock/rock_right.png" alt="computer move">
+    </div>
+		<div class="messages">
+      <h2 class="announcement">READY TO PLAY?</h2>
+    </div>
+  </main>
+	<script src="js/script.js"></script>
+</body>
+</html>

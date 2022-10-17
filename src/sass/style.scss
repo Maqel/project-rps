@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: url('../images/background.jpeg') no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  //   -moz-background-size: cover;
+  //   -o-background-size: cover;
+  //   background-size: cover;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.selected {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  height: 150px;
+  width: 150px;
+}
+
+.rock {
+  background: url(../images/rock/rock_button.png);
+}
+
+.paper {
+  background: url(../images/paper/paper_button.png);
+}
+
+.scissors {
+  background: url(../images/scissors/scissors_button.png);
+}
+
+
+
