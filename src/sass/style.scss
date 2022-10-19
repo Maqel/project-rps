@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   background: url('../images/background.jpeg') no-repeat center center fixed;
   font-family: 'Fuzzy Bubbles', cursive;
@@ -17,9 +15,13 @@ body {
   //   background-size: cover;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow:0 4px 0 #373329,
-              0 8px 0 #fede17,
-              0 8px 8px #fcfcfc;
+  text-shadow: 0 4px 0 #373329,
+    0 8px 0 #fede17,
+    0 8px 8px #fcfcfc;
+}
+
+#container {
+  display: none;
 }
 
 .buttons >* {
@@ -46,7 +48,6 @@ body {
   background: url(../images/scissors/scissors_button.png);
 }
 
-
 /* INTRO */
 
 .intro button {
@@ -58,5 +59,3 @@ body {
   background: #fc271f;
   cursor: pointer;
 }
-
-

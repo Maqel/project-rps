@@ -1,71 +1,79 @@
 'use strict';
 {
 
-  function printMessage(msg){
+  /* RESULTS */
+  const printMessage = (msg) => {
     let div = document.createElement('div');
     div.innerHTML = msg;
     document.getElementById('messages').appendChild(div);
-  }
+  };
 
-  function clearMessages(){
+  const clearMessages = () => {
     document.getElementById('messages').innerHTML = '';
-  }
+  };
 
+  /* START GAME */
 
+  const startButton = document.querySelector('.intro button');
+  const showMenu = document.querySelector('#container');
+  startButton.addEventListener('click', function () {
+    showMenu.style.display = 'block';
+    startButton.style.display = 'none';
+  });
 
-  function playGame(playerInput){
+  const playGame = (playerInput) =>{
 
     clearMessages();
-    const getMoveName = function(argMoveId){
+    const getMoveName = (argMoveId) =>{
       if(argMoveId == 1){
-        return 'rock';
+        return 'Rock';
       }
       else if(argMoveId == 2){
-        return 'paper';
+        return 'Paper';
       }
       else if(argMoveId == 3){
-        return 'scissors';
+        return 'Scissors';
       }
-      printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-      return 'nieznany ruch';
+      printMessage('I do not know such a movement ' + argMoveId + '.');
+      return 'unknown movement';
     };
 
     //Random Number//
     const randomNumber = Math.floor(Math.random() * 3 + 1);
-    console.log('Wylosowana liczba to: ' + randomNumber);
+    //console.log('Wylosowana liczba to: ' + randomNumber);
 
     //Computer Move//
     const argComputerMove = getMoveName(randomNumber);
 
-    printMessage('Mój ruch to: ' + argComputerMove);
+    printMessage('My move is: ' + argComputerMove);
 
     //Player Move
-    console.log('Gracz wpisał: ' + playerInput);
+    //console.log('Gracz wpisał: ' + playerInput);
     const argPlayerMove = getMoveName(playerInput);
 
-    printMessage('Twój ruch to: ' + argPlayerMove);
+    printMessage('Your move is: ' + argPlayerMove);
 
     //Winning result//
-    const displayResult = function(argComputerMove, argPlayerMove){
+    const displayResult = (argComputerMove, argPlayerMove) => {
 
       if(argComputerMove == 'rock' && argPlayerMove == 'paper'){
-        printMessage('Ty wygrywasz!');
+        printMessage('You Win!');
       }
       else if(argComputerMove == 'paper' && argPlayerMove == 'scissors'){
-        printMessage('Ty wygrywasz');
+        printMessage('You Win');
       }
       else if(argComputerMove == 'scissors' && argPlayerMove == 'rock'){
-        printMessage('Ty wygrywasz');
+        printMessage('You Win');
       }
       else if(argComputerMove == argPlayerMove){
-        printMessage('Jest Remis');
+        printMessage('it’s a draw');
       }
       else {
-        printMessage('Ja Wygrałem');
+        printMessage('I Win');
       }
     };
     displayResult(argComputerMove, argPlayerMove);
-  }
+  };
 
   document.getElementById('rock').addEventListener('click', function(){
     playGame(1);
