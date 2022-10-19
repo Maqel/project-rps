@@ -4,37 +4,59 @@
   box-sizing: border-box;
 }
 
-html {
+
+
+body {
   background: url('../images/background.jpeg') no-repeat center center fixed;
+  font-family: 'Fuzzy Bubbles', cursive;
+  font-size: 28px;
+  color: #fcfcfc;
   // -webkit-background-size: cover;
   //   -moz-background-size: cover;
   //   -o-background-size: cover;
   //   background-size: cover;
   letter-spacing: 2px;
   text-align: center;
+  text-shadow:0 4px 0 #373329,
+              0 8px 0 #fede17,
+              0 8px 8px #fcfcfc;
 }
 
-.selected {
+.buttons >* {
   background-repeat: no-repeat;
   background-size: 100%;
   border: none;
   cursor: pointer;
   color: transparent;
+  display: flex;
+
   height: 150px;
   width: 150px;
 }
 
-.rock {
+#rock {
   background: url(../images/rock/rock_button.png);
 }
 
-.paper {
+#paper {
   background: url(../images/paper/paper_button.png);
 }
 
-.scissors {
+#scissors {
   background: url(../images/scissors/scissors_button.png);
 }
 
+
+/* INTRO */
+
+.intro button {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 5px solid #373329;
+  font-size: 10vh;
+  background: #fc271f;
+  cursor: pointer;
+}
 
 

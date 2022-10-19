@@ -3,24 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<main class="container">
+  <div class="intro">
+    <button onclick="clickSound.play()">PLAY GAME</button>
+  </div>
+  <header class="title">
     <h1>ROCK PAPER SCISSORS</h1>
+  </header>
+	<main class="container">
 		<div class="buttons">
-      <button class="selected rock" type="button" onclick="clickSound.play()">ROCK</button>
-      <button class="selected paper" type="button" onclick="clickSound.play()">PAPER</button>
-      <button class="selected scissors" type="button" onclick="clickSound.play()">SCISSORS</button>
+      <button id="rock" type="button" onclick="clickSound.play()" >ROCK</button>
+      <button id="paper" type="button" onclick="clickSound.play()">PAPER</button>
+      <button id="scissors" type="button" onclick="clickSound.play()">SCISSORS</button>
     </div>
     <div class="img-container">
       <img class="player-move" src="./images/rock/rock_left.png" alt="player move">
       <img class="computer-move" src="./images/rock/rock_right.png" alt="computer move">
     </div>
-		<div class="messages">
+		<div id="messages">
       <h2 class="announcement">READY TO PLAY?</h2>
     </div>
   </main>
+  <!-- <script src="js/functions.js"></script> -->
 	<script src="js/script.js"></script>
 </body>
 </html>
