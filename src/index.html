@@ -9,24 +9,24 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="intro">
-    <button type="button" onclick="clickSound.play()">PLAY GAME</button>
-  </div>
   <header class="title">
     <h1>ROCK PAPER SCISSORS</h1>
   </header>
+  <div class="intro">
+    <button class="start-btn" type="button" onclick="clickSound.play()">PLAY GAME</button>
+  </div>
 	<main id="container">
+    <div class="img-container">
+      <img class="player-move move" src="./images/rock/rock_left.png" alt="player move">
+      <img class="computer-move move" src="./images/rock/rock_right.png" alt="computer move">
+    </div>
+    <div id="messages">
+      <h2 class="announcement">READY TO PLAY?</h2>
+    </div>
 		<div class="buttons">
       <button id="rock" type="button" onclick="clickSound.play()" >ROCK</button>
       <button id="paper" type="button" onclick="clickSound.play()">PAPER</button>
       <button id="scissors" type="button" onclick="clickSound.play()">SCISSORS</button>
-    </div>
-    <div class="img-container">
-      <img class="player-move" src="./images/rock/rock_left.png" alt="player move">
-      <img class="computer-move" src="./images/rock/rock_right.png" alt="computer move">
-    </div>
-		<div id="messages">
-      <h2 class="announcement">READY TO PLAY?</h2>
     </div>
   </main>
 	<script src="js/script.js"></script>
