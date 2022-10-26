@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
+$font-header: 'Fuzzy Bubbles', cursive;
+
 body {
   background: url('../images/background.jpeg') no-repeat center center fixed;
-  font-family: 'Fuzzy Bubbles', cursive;
+  font-family: $font-header;
   font-size: 28px;
   color: #fcfcfc;
   letter-spacing: 2px;
@@ -85,20 +87,31 @@ body {
 
 .intro {
   position: relative;
-  top: 100px;
+  top: 30px;
 }
 
 .start-btn {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
-  border: 5px solid #373329;
+  border: 15px solid #fcfcfc;
   font-size: 82px;
   background: #fc271f;
   cursor: pointer;
+  font-family: $font-header;
+  color: #fcfcfc;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { background-color:#fc271f;}
+  100% { background-color: #373329;}
+}
+
+.start-btn:hover {
+  color: #fc271f;
+  transform: translateY(-1rem);
 }
 
 #messages {
   margin-top: 110px;
 }
-
