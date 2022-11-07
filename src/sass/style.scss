@@ -24,21 +24,31 @@ body {
 
 .img-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 50px;
 }
+
 .move:hover {
   animation: 0.45s shake 3;
 }
+
 @keyframes shake {
   0% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
+
   100% {
-      transform: translateY(-50px);
+    transform: translateY(-50px);
   }
 }
 /* BUTTONS */
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
 
 .buttons >* {
   background-repeat: no-repeat;
@@ -48,15 +58,18 @@ body {
   color: transparent;
   height: 150px;
   width: 150px;
+
 }
 
 //rock
 #rock {
   background: url(../images/rock/rock_button.png);
 }
+
 #rock:hover {
   transform: translateY(-1rem);
 }
+
 #rock:focus {
   outline: none;
 }
@@ -65,9 +78,11 @@ body {
 #paper {
   background: url(../images/paper/paper_button.png);
 }
+
 #paper:hover {
   transform: translateY(-1rem);
 }
+
 #paper:focus {
   outline: none;
 }
@@ -76,9 +91,11 @@ body {
 #scissors {
   background: url(../images/scissors/scissors_button.png);
 }
+
 #scissors:hover {
   transform: translateY(-1rem);
 }
+
 #scissors:focus {
   outline: none;
 }
@@ -102,9 +119,13 @@ body {
   color: #fcfcfc;
   animation: pulse 2s infinite;
 }
+
 @keyframes pulse {
-  0% { background-color:#fc271f;}
-  100% { background-color: #373329;}
+  0% { background-color: #fc271f;
+  }
+
+  100% { background-color: #373329;
+  }
 }
 
 .start-btn:hover {
@@ -115,3 +136,4 @@ body {
 #messages {
   margin-top: 110px;
 }
+
