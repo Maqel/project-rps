@@ -1,6 +1,20 @@
 'use strict';
 {
 
+  /* SOUNDS */
+  let $playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
+  //let themeSound = () => new Audio('./vendor/sounds/retro-wave.mp3');
+
+  // function myStartMusic() {
+  //   let startMusic = document.getElementById('start-music');
+  //   startMusic.play();
+  // }
+  // myStartMusic();
+
+  // window.location.reload = function () {
+  //   myStartMusic();
+  // };
+
   /* RESULTS */
   const printMessage = (msg) => {
     let div = document.createElement('div');
@@ -17,9 +31,18 @@
   const playerMovement = document.querySelector('.player-move');
   const computerMovement = document.querySelector('.computer-move');
 
+  function shake() {
+    playerMovement.classList.add('shake');
+    computerMovement.classList.add('shake');
+    setTimeout(function () {
+      playerMovement.classList.remove('shake');
+      computerMovement.classList.remove('shake');
+    }, 1500);
+  }
+
   /* RESET MOVEMENT */
   function resetMovement() {
-    playerMovement.src = './images/rock/rock_left.png';
+    playerMovement.src = '/.images/rock/rock_left.png';
     computerMovement.src = './images/rock/rock_right.png';
   }
 
@@ -29,12 +52,13 @@
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
     startButton.style.display = 'none';
+    $playSound();
   });
 
   const playGame = (playerInput) =>{
 
-    clearMessages();
     resetMovement();
+    clearMessages();
     const getMoveName = (argMoveId) =>{
       if(argMoveId == 1){
         playerMovement.src = './images/rock/rock_left.png';
@@ -102,15 +126,25 @@
   };
 
   document.getElementById('rock').addEventListener('click', function(){
-    playGame(1);
+    shake();
+    setTimeout(function(){
+      playGame(1);
+    }, 1500);
 
+    $playSound();
   });
   document.getElementById('paper').addEventListener('click', function(){
-    playGame(2);
+    shake();
+    setTimeout(function(){
+      playGame(2);
+    }, 1500);
+    $playSound();
   });
   document.getElementById('scissors').addEventListener('click', function(){
-    playGame(3);
+    shake();
+    setTimeout(function(){
+      playGame(3);
+    }, 1500);
+    $playSound();
   });
-
-
 }

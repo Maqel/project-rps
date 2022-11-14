@@ -48,6 +48,7 @@ body {
   justify-content: space-around;
   align-items: center;
 
+
 }
 
 .buttons >* {
@@ -68,6 +69,8 @@ body {
 
 #rock:hover {
   transform: translateY(-1rem);
+  //background-size: 120%;   - wychodzi delikatnie po za kontener
+
 }
 
 #rock:focus {
@@ -81,6 +84,7 @@ body {
 
 #paper:hover {
   transform: translateY(-1rem);
+  //background-size: 120%;
 }
 
 #paper:focus {
@@ -94,6 +98,7 @@ body {
 
 #scissors:hover {
   transform: translateY(-1rem);
+  //background-size: 120%;
 }
 
 #scissors:focus {
@@ -135,5 +140,19 @@ body {
 
 #messages {
   margin-top: 110px;
+}
+
+
+.shake {
+  animation: 0.45s shake 3;
+}
+@keyframes shake {
+  0% {
+    transform: translateY(0px);
+  }
+  
+  100% {
+    transform: translateY(-50px);
+  }
 }
 
