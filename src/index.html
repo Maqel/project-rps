@@ -12,7 +12,9 @@
   <header class="title">
     <h1>ROCK PAPER SCISSORS</h1>
   </header>
-  <audio id="start-music" src="./vendor/sounds/retro-wave.mp3"></audio>
+  <div class="musicContainer">
+    <img src="./vendor/icon/play.png" id="icon" alt="play buttom">
+  </div>
   <div class="intro">
     <button class="start-btn" type="button">PLAY GAME</button>
   </div>
@@ -31,5 +33,8 @@
     </div>
   </main>
 	<script src="js/script.js"></script>
+  <audio id="themeSong">
+    <source src="./vendor/sounds/retro.mp3" type="audio/mp3">
+  </audio>
 </body>
 </html>

@@ -2,13 +2,12 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Fuzzy Bubbles', cursive;
 }
-
-$font-header: 'Fuzzy Bubbles', cursive;
 
 body {
   background: url('../images/background.jpeg') no-repeat center center fixed;
-  font-family: $font-header;
+
   font-size: 28px;
   color: #fcfcfc;
   letter-spacing: 2px;
@@ -60,6 +59,19 @@ body {
   height: 150px;
   width: 150px;
 
+}
+
+#icon {
+  height: 45px;
+  width: 45px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.musicContainer {
+  position: absolute;
+  top: 50px;
 }
 
 //rock
@@ -120,7 +132,7 @@ body {
   font-size: 82px;
   background: #fc271f;
   cursor: pointer;
-  font-family: $font-header;
+  // font-family: $font-header;
   color: #fcfcfc;
   animation: pulse 2s infinite;
 }
@@ -150,7 +162,7 @@ body {
   0% {
     transform: translateY(0px);
   }
-  
+
   100% {
     transform: translateY(-50px);
   }

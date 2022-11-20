@@ -2,18 +2,8 @@
 {
 
   /* SOUNDS */
-  let $playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
+  let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
   //let themeSound = () => new Audio('./vendor/sounds/retro-wave.mp3');
-
-  // function myStartMusic() {
-  //   let startMusic = document.getElementById('start-music');
-  //   startMusic.play();
-  // }
-  // myStartMusic();
-
-  // window.location.reload = function () {
-  //   myStartMusic();
-  // };
 
   /* RESULTS */
   const printMessage = (msg) => {
@@ -31,6 +21,12 @@
   const playerMovement = document.querySelector('.player-move');
   const computerMovement = document.querySelector('.computer-move');
 
+  /* RESET MOVEMENT */
+  function resetMovement() {
+    playerMovement.src = '/.images/rock/rock_left.png';
+    computerMovement.src = './images/rock/rock_right.png';
+  }
+
   function shake() {
     playerMovement.classList.add('shake');
     computerMovement.classList.add('shake');
@@ -40,45 +36,39 @@
     }, 1500);
   }
 
-  /* RESET MOVEMENT */
-  function resetMovement() {
-    playerMovement.src = '/.images/rock/rock_left.png';
-    computerMovement.src = './images/rock/rock_right.png';
-  }
-
   /* START GAME */
   const startButton = document.querySelector('.intro button');
   const showMenu = document.querySelector('#container');
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
     startButton.style.display = 'none';
-    $playSound();
+    playSound();
   });
 
   const playGame = (playerInput) =>{
 
     resetMovement();
     clearMessages();
-    const getMoveName = (argMoveId) =>{
+    const getMoveName = function(argMoveId){
       if(argMoveId == 1){
         playerMovement.src = './images/rock/rock_left.png';
-        return 'Rock';
+        return 'rock';
       }
       else if(argMoveId == 2){
         playerMovement.src = './images/paper/paper_left.png';
-        return 'Paper';
+        return 'paper';
       }
       else if(argMoveId == 3){
         playerMovement.src = './images/scissors/scissors_left.png';
-        return 'Scissors';
+        return 'scissors';
       }
-      printMessage('I do not know such a movement ' + argMoveId + '.');
-      return 'unknown movement';
+      printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+      return 'nieznany ruch';
     };
 
     //Random Number//
     const randomNumber = Math.floor(Math.random() * 3 + 1);
-    //console.log('Wylosowana liczba to: ' + randomNumber);
+    console.log('Wylosowana liczba to: ' + randomNumber);
 
     //Computer Move//
     const argComputerMove = getMoveName(randomNumber);
@@ -97,7 +87,7 @@
     }
 
     //Player Move
-    //console.log('Gracz wpisał: ' + playerInput);
+    console.log('Gracz wpisał: ' + playerInput);
     const argPlayerMove = getMoveName(playerInput);
     replaceComputerImage();
 
@@ -131,20 +121,20 @@
       playGame(1);
     }, 1500);
 
-    $playSound();
+    playSound();
   });
   document.getElementById('paper').addEventListener('click', function(){
     shake();
     setTimeout(function(){
       playGame(2);
     }, 1500);
-    $playSound();
+    playSound();
   });
   document.getElementById('scissors').addEventListener('click', function(){
     shake();
     setTimeout(function(){
       playGame(3);
     }, 1500);
-    $playSound();
+    playSound();
   });
 }
