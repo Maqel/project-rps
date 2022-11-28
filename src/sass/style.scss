@@ -21,7 +21,7 @@ body {
   display: none;
 }
 
-.img-container {
+.img_container {
   display: flex;
   justify-content: space-around;
   margin: 0 50px;
@@ -44,9 +44,8 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-
 
 }
 
@@ -77,6 +76,7 @@ body {
 //rock
 #rock {
   background: url(../images/rock/rock_button.png);
+  margin: 30px;
 }
 
 #rock:hover {
@@ -92,6 +92,7 @@ body {
 //paper
 #paper {
   background: url(../images/paper/paper_button.png);
+  margin: 30px;
 }
 
 #paper:hover {
@@ -106,6 +107,7 @@ body {
 //scissors
 #scissors {
   background: url(../images/scissors/scissors_button.png);
+  margin: 30px;
 }
 
 #scissors:hover {
