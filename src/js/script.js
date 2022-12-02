@@ -3,7 +3,23 @@
 
   /* SOUNDS */
   let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
-  //let themeSound = () => new Audio('./vendor/sounds/retro-wave.mp3');
+  //let themeSound = () => new Audio('./vendor/sounds/retro.mp3');
+
+  // const audio = new Audio('./vendor/sounds/retro.mp3');
+  // const buttons = document.querySelectorAll('button');
+
+  // buttons.forEach(button => {
+  //   button.addEventListener('click', () => {
+  //     audio.volume = 0.2;
+  //     audio.play();
+  //   });
+  // });
+
+  const matchResult = (msg) => {
+    let div = document.createElement('div');
+    div.innerHTML = msg;
+    document.getElementById('matchResult').appendChild(div);
+  };
 
   const printMessage = (msg) => {
     let div = document.createElement('div');
@@ -13,6 +29,7 @@
 
   const clearMessages = () => {
     document.getElementById('messages').innerHTML = '';
+    document.getElementById('matchResult').innerHTML = '';
   };
 
   const playerMovement = document.querySelector('.player_move');
@@ -89,19 +106,19 @@
     const displayResult = (argComputerMove, argPlayerMove) => {
 
       if(argComputerMove == 'rock' && argPlayerMove == 'paper'){
-        printMessage('You Win!');
+        matchResult('YOU WIN !!!');
       }
       else if(argComputerMove == 'paper' && argPlayerMove == 'scissors'){
-        printMessage('You Win');
+        matchResult('YOU WIN !!!');
       }
       else if(argComputerMove == 'scissors' && argPlayerMove == 'rock'){
-        printMessage('You Win');
+        matchResult('YOU WIN !!!');
       }
       else if(argComputerMove == argPlayerMove){
-        printMessage('it’s a draw');
+        matchResult('IT’S A DRAW !!!');
       }
       else {
-        printMessage('I Win');
+        matchResult('I WIN !!!');
       }
     };
     displayResult(argComputerMove, argPlayerMove);

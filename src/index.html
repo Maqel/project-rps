@@ -5,7 +5,7 @@
 	<title>Kamień, papier, nożyce</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik+Distressed&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,7 +13,8 @@
     <h1>ROCK PAPER SCISSORS</h1>
   </header>
   <div class="musicContainer">
-    <img src="./vendor/icon/play.png" id="icon" alt="play buttom">
+    <button class="musicButton" type="button">jedziesz</button>
+    <!-- <img src="./vendor/icon/play.png" id="musicButton" onclick="play();" alt="play buttom"> -->
   </div>
   <div class="intro">
     <button class="start-btn" type="button">PLAY GAME</button>
@@ -25,6 +26,9 @@
     </div>
     <div id="messages">
       <h2 class="announcement">READY TO PLAY?</h2>
+    </div>
+    <div id="matchResult">
+      <h2 class="content"></h2>
     </div>
 		<div class="buttons">
       <button id="rock" type="button" >ROCK</button>
