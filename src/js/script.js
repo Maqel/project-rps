@@ -3,20 +3,16 @@
 
   /* SOUNDS */
   let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
-  //let themeSound = () => new Audio('./vendor/sounds/retro.mp3');
-
-  // const audio = new Audio('./vendor/sounds/retro.mp3');
-  // const buttons = document.querySelectorAll('button');
-
-  // buttons.forEach(button => {
-  //   button.addEventListener('click', () => {
-  //     audio.volume = 0.2;
-  //     audio.play();
-  //   });
-  // });
-
+  
+  const audio = new Audio('./vendor/sounds/retro.mp3');
+  document.getElementById('musicButton').addEventListener('click', () => {
+    audio.volume = 0.1;
+    audio.play();
+  });
+  //...
+  /* SEND MESSAGES */
   const matchResult = (msg) => {
-    let div = document.createElement('div');
+    let div = document.createElement('h4');
     div.innerHTML = msg;
     document.getElementById('matchResult').appendChild(div);
   };
@@ -31,7 +27,8 @@
     document.getElementById('messages').innerHTML = '';
     document.getElementById('matchResult').innerHTML = '';
   };
-
+  //...
+  /* HANDS */
   const playerMovement = document.querySelector('.player_move');
   const computerMovement = document.querySelector('.computer_move');
 
@@ -47,6 +44,7 @@
       computerMovement.classList.remove('shake');
     }, 1500);
   }
+  //...
   /* START GAME */
   const startButton = document.querySelector('.intro button');
   const showMenu = document.querySelector('#container');
@@ -76,16 +74,11 @@
       printMessage('I do not know such a movement ' + argMoveId + '.');
       return 'unknown movement';
     };
-
-    //Random Number//
+    /* COMPUTER */
     const randomNumber = Math.floor(Math.random() * 3 + 1);
-    //console.log('Wylosowana liczba to: ' + randomNumber);
-
-    //Computer Move//
     const argComputerMove = getMoveName(randomNumber);
 
-    printMessage('My move is: ' + argComputerMove);
-
+    printMessage('My chose: &nbsp;&nbsp;&nbsp;' + argComputerMove);
 
     function replaceComputerImage() {
       if (argComputerMove === 'rock') {
@@ -99,7 +92,7 @@
 
     //Player Move
     const argPlayerMove = getMoveName(playerInput);
-    printMessage('Your move is: ' + argPlayerMove);
+    printMessage('Your chose is: &nbsp;&nbsp;&nbsp;' + argPlayerMove);
     replaceComputerImage();
 
     //Winning result//

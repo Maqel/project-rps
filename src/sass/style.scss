@@ -9,7 +9,6 @@ $font-frontal: 'Rubik Distressed', cursive;
 
 body {
   background: url('../images/background.jpeg') no-repeat center center fixed;
-
   font-size: 28px;
   color: #fcfcfc;
   letter-spacing: 2px;
@@ -73,7 +72,8 @@ body {
 
 .musicContainer {
   position: absolute;
-  top: 50px;
+  top: 4%;
+  left: 15%;
 }
 
 //rock
@@ -140,6 +140,15 @@ body {
   font-family: $font-frontal;
   color: #fcfcfc;
   animation: pulse 2s infinite;
+  transition: 0.5s;
+}
+
+.start-btn:hover {
+  background-image: radial-gradient(circle, #353337, #383236, #3a3133, #3b3130, #3b312c, #4a3f3a, #594e49, #685e59, #8c8281, #afa9ab, #d4d2d4, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc);
+  border-radius: 47%;
+  text-shadow: 0 6px 0 #373329;
+  color: #fc271f;
+  transform: translateY(-1rem);
 }
 
 @keyframes pulse {
@@ -150,16 +159,15 @@ body {
   }
 }
 
-.start-btn:hover {
-  color: #fc271f;
-  transform: translateY(-1rem);
-}
-
 #messages {
   // animation: fadeIn ease 5s;
   margin-top: 110px;
+  height: 50px;
 }
 
+#messages div {
+  height: 100%;
+}
 // @keyframes fadeIn {
 //   0% {
 //     opacity:0;
@@ -168,7 +176,6 @@ body {
 //     opacity:1;
 //   }
 // }
-
 
 .shake {
   animation: 0.45s shake 3;
@@ -192,12 +199,6 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
-  font-size: 48px;
+  font-size: 52px;
   letter-spacing: 2px;
-
-  h2 {
-    size: 100px;
-    max-width: 100%;
-    max-height: 100%;
-  }
 }
