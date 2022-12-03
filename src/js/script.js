@@ -3,10 +3,12 @@
 
   /* SOUNDS */
   let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
-  
+  let startSound = () => new Audio('./vendor/sounds/ready-fight.mp3').play();
+  let openingSound = () => new Audio('./vendor/sounds/opening.wav').play();
+
   const audio = new Audio('./vendor/sounds/retro.mp3');
   document.getElementById('musicButton').addEventListener('click', () => {
-    audio.volume = 0.1;
+    audio.volume = 0.5;
     audio.play();
   });
   //...
@@ -51,7 +53,8 @@
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
     startButton.style.display = 'none';
-    playSound();
+    openingSound();
+    startSound();
   });
 
   const playGame = (playerInput) =>{
