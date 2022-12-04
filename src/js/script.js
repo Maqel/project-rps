@@ -5,6 +5,9 @@
   let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
   let startSound = () => new Audio('./vendor/sounds/ready-fight.mp3').play();
   let openingSound = () => new Audio('./vendor/sounds/opening.wav').play();
+  let badSound = () => new Audio('./vendor/sounds/no.mp3').play();
+  let drawSound = () => new Audio('./vendor/sounds/wtf.mp3').play();
+  let winSound = () => new Audio('./vendor/sounds/win.mp3').play();
 
   const audio = new Audio('./vendor/sounds/retro.mp3');
   document.getElementById('musicButton').addEventListener('click', () => {
@@ -103,18 +106,23 @@
 
       if(argComputerMove == 'rock' && argPlayerMove == 'paper'){
         matchResult('YOU WIN !!!');
+        winSound();
       }
       else if(argComputerMove == 'paper' && argPlayerMove == 'scissors'){
         matchResult('YOU WIN !!!');
+        winSound();
       }
       else if(argComputerMove == 'scissors' && argPlayerMove == 'rock'){
         matchResult('YOU WIN !!!');
+        winSound();
       }
       else if(argComputerMove == argPlayerMove){
         matchResult('IT’S A DRAW !!!');
+        drawSound();
       }
       else {
         matchResult('I WIN !!!');
+        badSound();
       }
     };
     displayResult(argComputerMove, argPlayerMove);
