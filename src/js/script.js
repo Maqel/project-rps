@@ -117,7 +117,7 @@
         winSound();
       }
       else if(argComputerMove == argPlayerMove){
-        matchResult('IT’S A DRAW !!!');
+        matchResult('IT`S A DRAW !!!');
         drawSound();
       }
       else {
