@@ -5,12 +5,13 @@ $font-frontal: 'Rubik Distressed', cursive;
 *::after {
   box-sizing: border-box;
   font-family: 'Luckiest Guy', cursive;
+  margin: 0 auto;
 }
 
 body {
   width: 100vh;
   height: 100vh;
-  margin: 0 auto;
+  margin: 2vh auto;
   background: linear-gradient(135deg, orange 60%, cyan);
   //background: linear-gradient(45deg, red, blue);
   //background: url('../images/background.jpeg') no-repeat center center fixed;
@@ -18,17 +19,17 @@ body {
   color: #fcfcfc;
   letter-spacing: 2px;
   text-align: center;
-  text-shadow: 0 4px 0 #373329,
-    0 8px 0 #fede17,
+  text-shadow: 0 4px 0 #000000,
+    0 8px 0 #302e2f,
     0 8px 8px #fcfcfc;
 }
 
 #container {
-  max-width: 100vh;
-  max-height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 2vh auto;
   display: none;
   position: relative;
-  // border: 3px solid rgba(255,255,255,0.3);
   -webkit-box-shadow: 55px 35px 50px 30px rgba(55, 59, 67, 1);
   -moz-box-shadow: 55px 35px 50px 30px rgba(55, 59, 67, 1);
   box-shadow: 55px 35px 50px 30px rgba(55, 59, 67, 1);
@@ -36,8 +37,12 @@ body {
 
 .img_container {
   display: flex;
-  justify-content: space-around;
-  margin: 0 50px;
+  justify-content: space-between;
+  padding: 2vh;
+}
+
+.move {
+  margin: 0vh;
 }
 
 .move:hover {
@@ -209,7 +214,6 @@ body {
 #matchResult{
   margin: auto;
   position: absolute;
-  // background-color: black;
   width: 300px;
   height: 100px;
   top: 40%;
@@ -219,3 +223,38 @@ body {
   letter-spacing: 2px;
 }
 
+.score-container {
+  font-family: $font-frontal;
+  position: absolute;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+}
+
+.points {
+  display: flex;
+  flex-direction: row;
+}
+
+.points h3 {
+  margin-left: 35px;
+}
+
+#you,
+#computer,
+#draws {
+  font-size: 6vh;
+  color: #fcc02e;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+#player-score,
+#computer-score,
+#draw-score {
+  font-size: 6vh;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}

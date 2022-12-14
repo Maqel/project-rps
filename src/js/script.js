@@ -15,6 +15,7 @@
     audio.play();
   });
   //...
+
   /* SEND MESSAGES */
   const matchResult = (msg) => {
     let div = document.createElement('h4');
@@ -33,6 +34,7 @@
     document.getElementById('matchResult').innerHTML = '';
   };
   //...
+
   /* HANDS */
   const playerMovement = document.querySelector('.player_move');
   const computerMovement = document.querySelector('.computer_move');
@@ -50,6 +52,7 @@
     }, 1500);
   }
   //...
+
   /* START GAME */
   const startButton = document.querySelector('.intro button');
   const showMenu = document.querySelector('#container');
@@ -65,20 +68,20 @@
     clearMessages();
     resetMovement();
     const getMoveName = (argMoveId) =>{
-      if(argMoveId === 1){
+      switch (argMoveId) {
+      case 1:
         playerMovement.src = './images/rock/rock_left.png';
         return 'rock';
-      }
-      else if(argMoveId === 2){
+      case 2:
         playerMovement.src = './images/paper/paper_left.png';
         return 'paper';
-      }
-      else if(argMoveId === 3){
+      case 3:
         playerMovement.src = './images/scissors/scissors_left.png';
         return 'scissors';
+      default:
+        printMessage('I do not know such a movement ' + argMoveId + '.');
+        return 'unknown movement';
       }
-      printMessage('I do not know such a movement ' + argMoveId + '.');
-      return 'unknown movement';
     };
     /* COMPUTER */
     const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -87,12 +90,16 @@
     printMessage('My chose: &nbsp;&nbsp;&nbsp;' + argComputerMove);
 
     function replaceComputerImage() {
-      if (argComputerMove === 'rock') {
+      switch (argComputerMove) {
+      case 'rock':
         computerMovement.src = './images/rock/rock_right.png';
-      } else if (argComputerMove === 'paper') {
+        break;
+      case 'paper':
         computerMovement.src = './images/paper/paper_right.png';
-      } else if (argComputerMove === 'scissors') {
+        break;
+      case 'scissors':
         computerMovement.src = './images/scissors/scissors_right.png';
+        break;
       }
     }
 
@@ -101,28 +108,30 @@
     printMessage('Your chose is: &nbsp;&nbsp;&nbsp;' + argPlayerMove);
     replaceComputerImage();
 
+
     //Winning result//
     const displayResult = (argComputerMove, argPlayerMove) => {
-
-      if(argComputerMove == 'rock' && argPlayerMove == 'paper'){
+      switch (true) {
+      case (argComputerMove === 'rock' && argPlayerMove === 'paper'):
         matchResult('YOU WIN !!!');
         winSound();
-      }
-      else if(argComputerMove == 'paper' && argPlayerMove == 'scissors'){
+        break;
+      case (argComputerMove === 'paper' && argPlayerMove === 'scissors'):
         matchResult('YOU WIN !!!');
         winSound();
-      }
-      else if(argComputerMove == 'scissors' && argPlayerMove == 'rock'){
+        break;
+      case (argComputerMove === 'scissors' && argPlayerMove === 'rock'):
         matchResult('YOU WIN !!!');
         winSound();
-      }
-      else if(argComputerMove == argPlayerMove){
+        break;
+      case (argComputerMove === argPlayerMove):
         matchResult('IT`S A DRAW !!!');
         drawSound();
-      }
-      else {
+        break;
+      default:
         matchResult('I WIN !!!');
         badSound();
+        break;
       }
     };
     displayResult(argComputerMove, argPlayerMove);
