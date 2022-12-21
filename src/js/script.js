@@ -54,7 +54,7 @@
   //...
 
   /* START GAME */
-  const startButton = document.querySelector('.intro button');
+  const startButton = document.querySelector('.intro');
   const showMenu = document.querySelector('#container');
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
@@ -83,10 +83,10 @@
         return 'unknown movement';
       }
     };
+
     /* COMPUTER */
     const randomNumber = Math.floor(Math.random() * 3 + 1);
     const argComputerMove = getMoveName(randomNumber);
-
     printMessage('My chose: &nbsp;&nbsp;&nbsp;' + argComputerMove);
 
     function replaceComputerImage() {
@@ -107,7 +107,6 @@
     const argPlayerMove = getMoveName(playerInput);
     printMessage('Your chose is: &nbsp;&nbsp;&nbsp;' + argPlayerMove);
     replaceComputerImage();
-
 
     //Winning result//
     const displayResult = (argComputerMove, argPlayerMove) => {
@@ -143,8 +142,8 @@
     }, 1500);
     playSound();
     shake();
-
   });
+
   document.getElementById('paper').addEventListener('click', function(){
     setTimeout(function(){
       playGame(2);
@@ -152,6 +151,7 @@
     playSound();
     shake();
   });
+
   document.getElementById('scissors').addEventListener('click', function(){
     setTimeout(function(){
       playGame(3);
@@ -159,6 +159,4 @@
     playSound();
     shake();
   });
-
-
 }
