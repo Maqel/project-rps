@@ -12,7 +12,8 @@ body {
   width: 100vh;
   height: 100vh;
   margin: 2vh auto;
-  background: linear-gradient(145deg, orange 30%, rgb(252, 252, 252));
+  background: rgb(73,168,155);
+  background: linear-gradient(145deg, rgba(73,168,155,1) 30%, rgba(255,165,0,1) 55%);
   font-size: 28px;
   color: #fcfcfc;
   letter-spacing: 2px;
@@ -28,8 +29,7 @@ body {
   margin: 2vh auto;
   display: none;
   position: relative;
-  background: rgb(73,168,155);
-  background: linear-gradient(143deg, rgba(55, 59, 67, 1) 50%, rgba(255,165,0,1) 55%);
+  background-image: linear-gradient( 112.7deg,  rgba(253,185,83,1) 11.4%, rgba(255,138,0,1) 70.2% );
   -webkit-box-shadow: 40px 40px 25px 15px rgba(55, 51, 41, 1);
   -moz-box-shadow: 40px 40px 25px 15px rgba(55, 51, 41, 1);
   box-shadow: 40px 40px 25px 15px rgba(55, 51, 41, 1);
@@ -44,10 +44,14 @@ body {
 
 .move {
   margin: 0vh;
+  width: 35vh;
+  height: 35vh;
 }
 
 .move:hover {
   animation: 0.45s shake 3;
+  width: 38vh;
+  height: 38vh;
 }
 
 @keyframes shake {
@@ -100,7 +104,7 @@ body {
 }
 
 #rock:hover {
-  transform: translateY(-1rem);
+  animation: mouse-pointer 1s cubic-bezier(.36,.07,.57,.99) infinite;
 }
 
 #rock:focus {
@@ -114,7 +118,7 @@ body {
 }
 
 #paper:hover {
-  transform: translateY(-1rem);
+  animation: mouse-pointer 1s cubic-bezier(.36,.07,.57,.99) infinite;
 }
 
 #paper:focus {
@@ -128,14 +132,39 @@ body {
 }
 
 #scissors:hover {
-  transform: translateY(-1rem);
+  animation: mouse-pointer 1s cubic-bezier(.36,.07,.57,.99) infinite;
 }
 
 #scissors:focus {
   outline: none;
 }
 
-/* INTRO */
+@keyframes mouse-pointer {
+  0% {
+    transform: scale(1.5);
+  }
+
+  20% {
+    transform: scale(1.5);
+  }
+
+  22.5% {
+    transform: scale(1.2);
+  }
+
+  32.5% {
+    transform: scale(1.2);
+  }
+
+  35% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+/* ---INTRO--- */
 
 .intro {
   margin-top: 10vh;
@@ -188,6 +217,14 @@ body {
   color: #fcfcfc;
   // animation: pulse 2s infinite;
   // transition: 0.5s;
+}
+
+.info-btn:hover {
+  background-image: radial-gradient(circle, #353337, #383236, #3a3133, #3b3130, #3b312c, #4a3f3a, #594e49, #685e59, #8c8281, #afa9ab, #d4d2d4, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc, #fcfcfc);
+  border-radius: 47%;
+  text-shadow: 0 6px 0 #373329;
+  color: #fc271f;
+  transform: translateY(1rem);
 }
 
 #messages {
@@ -261,4 +298,7 @@ body {
 
 .title span {
   color: rgba(55, 59, 67, 1);
+  text-shadow: 0 4px 25px #000000,
+    0 8px 0 #fcfcfc,
+    0 8px 8px #fcfcfc;
 }

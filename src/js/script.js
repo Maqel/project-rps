@@ -35,6 +35,16 @@
   };
   //...
 
+  let playerScore = 0;
+  let computerScore = 0;
+  let drawScore = 0;
+
+  function scoreBoard() {
+
+    document.getElementById('player-score').innerHTML = playerScore;
+    document.getElementById('computer-score').innerHTML = computerScore;
+    document.getElementById('draw-score').innerHTML = drawScore;
+  }
   /* HANDS */
   const playerMovement = document.querySelector('.player_move');
   const computerMovement = document.querySelector('.computer_move');
@@ -59,6 +69,7 @@
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
     startButton.style.display = 'none';
+    scoreBoard();
     openingSound();
     startSound();
   });
@@ -109,31 +120,38 @@
     replaceComputerImage();
 
     //Winning result//
+
     const displayResult = (argComputerMove, argPlayerMove) => {
       switch (true) {
       case (argComputerMove === 'rock' && argPlayerMove === 'paper'):
         matchResult('YOU WIN !!!');
+        playerScore += 1;
         winSound();
         break;
       case (argComputerMove === 'paper' && argPlayerMove === 'scissors'):
         matchResult('YOU WIN !!!');
+        playerScore += 1;
         winSound();
         break;
       case (argComputerMove === 'scissors' && argPlayerMove === 'rock'):
         matchResult('YOU WIN !!!');
+        playerScore += 1;
         winSound();
         break;
       case (argComputerMove === argPlayerMove):
         matchResult('IT`S A DRAW !!!');
+        drawScore += 1;
         drawSound();
         break;
       default:
         matchResult('I WIN !!!');
+        computerScore += 1;
         badSound();
         break;
       }
     };
     displayResult(argComputerMove, argPlayerMove);
+    scoreBoard();
   };
 
   document.getElementById('rock').addEventListener('click', function(){
