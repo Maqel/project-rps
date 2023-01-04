@@ -49,6 +49,7 @@
   const playerMovement = document.querySelector('.player_move');
   const computerMovement = document.querySelector('.computer_move');
 
+
   function resetMovement() {
     playerMovement.src = './images/rock/rock_left.png';
     computerMovement.src = './images/rock/rock_right.png';
@@ -63,12 +64,24 @@
   }
   //...
 
-  /* START GAME */
-  const startButton = document.querySelector('.intro');
+  /* MENU */
+  const playButton = document.querySelector('.play-btn');
+  const infoButton = document.querySelector('.info-btn');
+  const startButton = document.querySelector('.start-btn');
   const showMenu = document.querySelector('#container');
+  playButton.addEventListener('click', function (e) {
+    e.target.disabled = true;
+    infoButton.style.display = 'block';
+    startButton.style.display = 'block';
+    openingSound();
+  });
+
+  /* START GAME */
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';
+    infoButton.style.display = 'none';
     startButton.style.display = 'none';
+    playButton.style.display = 'none';
     scoreBoard();
     openingSound();
     startSound();
@@ -78,6 +91,7 @@
 
     clearMessages();
     resetMovement();
+
     const getMoveName = (argMoveId) =>{
       switch (argMoveId) {
       case 1:
@@ -98,7 +112,7 @@
     /* COMPUTER */
     const randomNumber = Math.floor(Math.random() * 3 + 1);
     const argComputerMove = getMoveName(randomNumber);
-    printMessage('My chose: &nbsp;&nbsp;&nbsp;' + argComputerMove);
+    //printMessage('&nbsp;&nbsp;&nbsp;' + argComputerMove);
 
     function replaceComputerImage() {
       switch (argComputerMove) {
@@ -116,7 +130,7 @@
 
     //Player Move
     const argPlayerMove = getMoveName(playerInput);
-    printMessage('Your chose is: &nbsp;&nbsp;&nbsp;' + argPlayerMove);
+    //printMessage(' &nbsp;&nbsp;&nbsp;' + argPlayerMove);
     replaceComputerImage();
 
     //Winning result//
@@ -153,6 +167,15 @@
     displayResult(argComputerMove, argPlayerMove);
     scoreBoard();
   };
+
+  const buttons = document.querySelector( '.buttons' );
+  buttons.addEventListener( 'click', ( e ) => {
+    e.target.disabled = true;
+
+    setTimeout( () => {
+      e.target.disabled = false;
+    }, 2000 );
+  } );
 
   document.getElementById('rock').addEventListener('click', function(){
     setTimeout(function(){
