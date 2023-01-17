@@ -37,13 +37,13 @@
 
   let playerScore = 0;
   let computerScore = 0;
-  let drawScore = 0;
+  //let drawScore = 0;
 
   function scoreBoard() {
 
     document.getElementById('player-score').innerHTML = playerScore;
     document.getElementById('computer-score').innerHTML = computerScore;
-    document.getElementById('draw-score').innerHTML = drawScore;
+    //document.getElementById('draw-score').innerHTML = drawScore;
   }
   /* HANDS */
   const playerMovement = document.querySelector('.player_move');
@@ -154,7 +154,7 @@
         break;
       case (argComputerMove === argPlayerMove):
         matchResult('IT`S A DRAW !!!');
-        drawScore += 1;
+        //drawScore += 1;
         drawSound();
         break;
       default:
