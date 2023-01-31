@@ -35,6 +35,7 @@
   };
   //...
 
+  /* SCORE BOARD */
   let playerScore = 0;
   let computerScore = 0;
   //let drawScore = 0;
@@ -69,6 +70,7 @@
   const infoButton = document.querySelector('.info-btn');
   const startButton = document.querySelector('.start-btn');
   const showMenu = document.querySelector('#container');
+  const faq = document.querySelector('#faq');
   playButton.addEventListener('click', function (e) {
     e.target.disabled = true;
     infoButton.style.display = 'block';
@@ -76,6 +78,14 @@
     openingSound();
   });
 
+  infoButton.addEventListener('click', function () {
+    faq.style.display = 'block';
+    showMenu.style.display = 'none';
+    infoButton.style.display = 'none';
+    startButton.style.display = 'none';
+    playButton.style.display = 'none';
+    openingSound();
+  });
   /* START GAME */
   startButton.addEventListener('click', function () {
     showMenu.style.display = 'block';

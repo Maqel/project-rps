@@ -5,7 +5,7 @@
 	<title>Kamień, papier, nożyce</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik+Distressed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,10 +16,13 @@
     <img src="./vendor/icon/play.png" id="musicButton" alt="play buttom">
   </div>
   <div class="intro">
-    <button class="button-49" type="button">PLAY GAME</button>
-    <button class="play-btn" type="button">PLAY GAME</button>
-    <button class="start-btn subordinate-btn" type="button">Start</button>
-    <button class="info-btn subordinate-btn" type="button">How to play</button>
+    <button class="play-btn btn" type="button">PLAY GAME</button>
+    <button class="start-btn play-btn btn" type="button">Start</button>
+    <button class="info-btn play-btn btn" type="button" href="#faq">How to play</button>
+  </div>
+  <div id="faq">
+    <div class="faq_container">
+    </div>
   </div>
     <main id="container">
       <div class="img_container">
@@ -32,17 +35,17 @@
       <div id="matchResult">
       </div>
       <div class="buttons">
-        <button id="rock" type="button" >ROCK</button>
+        <button id="rock" type="button">ROCK</button>
         <button id="paper" type="button">PAPER</button>
         <button id="scissors" type="button">SCISSORS</button>
       </div>
       <div class="score-container">
         <div class="points player_points">
-          <h3 id="you">player</h3>
+          <h3 id="you">PLAYER</h3>
           <h3 id="player-score">0</h3>
         </div>
         <div class="points cpu_points">
-          <h3 id="computer">computer</h3>
+          <h3 id="computer">COMPUTER</h3>
           <h3 id="computer-score">0</h3>
         </div>
         <!-- <div class="points draws_points">
