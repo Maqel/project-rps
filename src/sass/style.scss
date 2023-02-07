@@ -1,4 +1,8 @@
 $font-frontal: 'Rubik Distressed', cursive;
+$neon-color: 0 0 5px #03e9f4,
+  0 0 25px #03e9f4,
+  0 0 50px #03e9f4,
+  0 0 100px #03e9f4;
 
 *,
 *::before,
@@ -240,6 +244,18 @@ body {
   font-size: 3vh;
 }
 
+.title  {
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.title :hover {
+  color: #fff;
+  text-shadow: $neon-color;
+}
+
 .title span {
   color: rgba(55, 59, 67, 1);
   text-shadow: 0 4px 25px #000000,
@@ -267,11 +283,11 @@ body {
   width: 50vh;
   height: 15vh;
   line-height: 78px;
-  font-size: 48px;
+  font-size: 50px;
   background: linear-gradient(45deg, transparent 5%, #b12439 5%);
   border: none;
-  border-radius: 7px 7px 7px;
-  border-top: 8px solid #4c4c4c;
+  border-radius: 17px 17px 17px;
+  border-top: 13px solid #4c4c4c;
   border-right: 8px solid #4c4c4c;
   color: #fff;
   letter-spacing: 3px;
@@ -287,10 +303,15 @@ body {
 }
 
 .play-btn:hover{
-  box-shadow: 6px 0px 0px #273246;
-  border-top: 5px solid #4c4c4c;
+  //box-shadow: 8px 0px 0px #273246;
+  border-radius: 7px 7px 7px;
+  border-top: 8px solid #4c4c4c;
   border-right: 5px solid #4c4c4c;
+  box-shadow: 32px 8px 10px 0px rgba(39, 50, 70, 1);
   transform: translateX(1rem);
+  color: #fff;
+  text-shadow: $neon-color;
+
 }
 
 .play-btn:after {
