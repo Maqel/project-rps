@@ -1,20 +1,41 @@
 'use strict';
 {
 
-  /* SOUNDS */
-  let playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
-  let startSound = () => new Audio('./vendor/sounds/ready-fight.mp3').play();
-  let openingSound = () => new Audio('./vendor/sounds/opening.wav').play();
-  let badSound = () => new Audio('./vendor/sounds/no.mp3').play();
-  let drawSound = () => new Audio('./vendor/sounds/wtf.mp3').play();
-  let winSound = () => new Audio('./vendor/sounds/win.mp3').play();
+  const playIcon = './vendor/icon/play-50.png';
+  const pauseIcon = './vendor/icon/pause-50.png';
 
+  /* SOUNDS */
+  const playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
+  const startSound = () => new Audio('./vendor/sounds/ready-fight.mp3').play();
+  const openingSound = () => new Audio('./vendor/sounds/opening.wav').play();
+  const badSound = () => new Audio('./vendor/sounds/no.mp3').play();
+  const drawSound = () => new Audio('./vendor/sounds/wtf.mp3').play();
+  const winSound = () => new Audio('./vendor/sounds/win.mp3').play();
   const audio = new Audio('./vendor/sounds/retro.mp3');
-  document.getElementById('musicButton').addEventListener('click', () => {
-    audio.volume = 0.5;
-    audio.play();
+
+  const musicButton = document.getElementById('musicButton');
+  const musicIcon = document.getElementById('musicIcon');
+
+  let isPlaying = false;
+
+  musicButton.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      musicIcon.src = `${playIcon}`;
+    } else {
+      audio.play();
+      audio.volume = 0.3;
+      musicIcon.src = `${pauseIcon}`;
+    }
+    isPlaying = !isPlaying;
+
   });
-  //...
+
+  audio.addEventListener('ended', () => {
+    musicIcon.src = `${playIcon}`;
+    isPlaying = false;
+  });
+
 
   /* SEND MESSAGES */
   const matchResult = (msg) => {
