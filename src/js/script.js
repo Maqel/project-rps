@@ -1,9 +1,6 @@
 'use strict';
 {
 
-  const playIcon = './vendor/icon/play-50.png';
-  const pauseIcon = './vendor/icon/pause-50.png';
-
   /* SOUNDS */
   const playSound = () => new Audio('./vendor/sounds/button-click.wav').play();
   const startSound = () => new Audio('./vendor/sounds/ready-fight.mp3').play();
@@ -12,23 +9,27 @@
   const drawSound = () => new Audio('./vendor/sounds/wtf.mp3').play();
   const winSound = () => new Audio('./vendor/sounds/win.mp3').play();
   const audio = new Audio('./vendor/sounds/retro.mp3');
-
   const musicButton = document.getElementById('musicButton');
   const musicIcon = document.getElementById('musicIcon');
+
+  const playIcon = './vendor/icon/play-50.png';
+  const pauseIcon = './vendor/icon/pause-50.png';
 
   let isPlaying = false;
 
   musicButton.addEventListener('click', () => {
-    if (isPlaying) {
+    switch (isPlaying) {
+    case true:
       audio.pause();
       musicIcon.src = `${playIcon}`;
-    } else {
+      break;
+    case false:
       audio.play();
       audio.volume = 0.3;
       musicIcon.src = `${pauseIcon}`;
+      break;
     }
     isPlaying = !isPlaying;
-
   });
 
   audio.addEventListener('ended', () => {
@@ -36,12 +37,14 @@
     isPlaying = false;
   });
 
-
   /* SEND MESSAGES */
   const matchResult = (msg) => {
     let div = document.createElement('h4');
     div.innerHTML = msg;
     document.getElementById('matchResult').appendChild(div);
+    setTimeout(() => {
+      div.style.display = 'none';
+    }, 5000);
   };
 
   const printMessage = (msg) => {
@@ -96,6 +99,7 @@
     e.target.disabled = true;
     infoButton.style.display = 'block';
     startButton.style.display = 'block';
+    playButton.style.display = 'none';
     openingSound();
   });
 
@@ -106,6 +110,12 @@
     startButton.style.display = 'none';
     playButton.style.display = 'none';
     openingSound();
+  });
+
+  const backButton = document.getElementById('backButton');
+  backButton.addEventListener('click', function() {
+    const previousPage = document.referrer;
+    window.location.href = previousPage;
   });
   /* START GAME */
   startButton.addEventListener('click', function () {
@@ -206,7 +216,7 @@
     setTimeout( () => {
       e.target.disabled = false;
     }, 2000 );
-  } );
+  } ); // - SPRÓBUJ POSZUKAĆ INNEJ METODY NA BLOKOWANIE AKCJI PODCZAS WYKONYWANIA KODU (PO KLIKNIĘCIU W PRZYCISK BLOKUJ TEZ MOZLIWOŚĆ KLIKNIĘCIA INNYCH BUTTONÓW W TEJ CHWILI BLOKUJE TYLKO AKCJĘ OSTATNIO KLIKNIĘTEGO NA 2SEC)
 
   document.getElementById('rock').addEventListener('click', function(){
     setTimeout(function(){
