@@ -241,18 +241,55 @@ body {
   cursor: pointer;
   text-transform: uppercase;
   transition: 0.5s;
+  animation: flicker 1.5s infinite alternate;
+}
+
+/* Flickering animation */
+@keyframes flicker {
+
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+    text-shadow: $neon-color;
+  }
+
+  20%, 24%, 55% {
+      text-shadow: none;
+  }
 }
 
 .title :hover {
-  color: #fff;
-  text-shadow: $neon-color;
-}
-
-.title span {
-  color: rgba(55, 59, 67, 1);
+  color:$neon-color;
   text-shadow: 0 4px 25px #000000,
     0 8px 0 #fcfcfc,
     0 8px 8px #fcfcfc;
+}
+
+.title span {
+  //color: rgba(55, 59, 67, 1);
+  text-shadow: 0 4px 25px #000000,
+    0 8px 0 #fcfcfc,
+    0 8px 8px #fcfcfc;
+    transition: 0.2s;
+  animation: flicker 2s infinite alternate;
+}
+
+.blackout {
+  color: $neon-color;
+  text-shadow: none;
+  transition: 1.7s;
+  animation: flicker2 3s infinite alternate;
+}
+
+@keyframes flicker2 {
+
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+    text-shadow: #383737;
+  }
+
+  20%, 24%, 55% {
+      text-shadow: none;
+  }
 }
 
 .player_points {
